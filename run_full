@@ -1,0 +1,18 @@
+cd 01_data
+root -b -q GenerateData.cxx
+root -b -q PlotData.cxx
+gv Distribution.eps&
+cd ../02_thetainput
+root -b -q ReadoutData.cxx
+cd ../03_runtheta
+./exec
+cd ../04_thetaoutput
+python ReadoutLimits.py
+cd ../05_plotlimits
+root -b -q PlotLimits.cxx
+gv Limits.eps&
+cd ../06_plotpostfit
+root -b -q PlotPostfitDistribution.cxx
+python PlotPostfitParameters.py
+gv Distribution_postfit.eps&
+gv Parameters_postfit.eps&
