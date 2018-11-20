@@ -1,3 +1,5 @@
 *.cfg
 *.root
 *.eps
+*.db
+*.png
